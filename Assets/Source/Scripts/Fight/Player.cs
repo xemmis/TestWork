@@ -66,8 +66,8 @@ public class Player : MonoBehaviour, IAlive
             ChangeFillAmount();
             return;
         }
-        ChangeFillAmount();
         Health += healAmount;
+        ChangeFillAmount();
     }
 
 

@@ -53,7 +53,12 @@ public class Slot : MonoBehaviour, IDropHandler
     }
 
     public int AddAmountToIndex(int amount)
-    {
+    {       
+        if (SlotItem.Amount + amount <= 0)
+        {
+            return -1;
+        }
+
         int newAmount = SlotItem.Amount + amount;
 
         if (newAmount > SlotItem.MaxStack)
