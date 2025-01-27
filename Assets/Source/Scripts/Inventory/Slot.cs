@@ -118,7 +118,7 @@ public class Slot : MonoBehaviour, IDropHandler
             {
                 if (anotherItem.SlotItem.Id == SlotItem.Id)
                 {
-                    int missAmount = anotherItem.AddAmountToIndex(SlotItem.Amount);
+                    int missAmount = (anotherItem.SlotItem.Amount + SlotItem.Amount) - SlotItem.MaxStack; 
 
                     if (missAmount > 0)
                     {
@@ -129,7 +129,7 @@ public class Slot : MonoBehaviour, IDropHandler
                         anotherItem.UpdateAmountText();
                         return;
                     }
-                    AddAmountToIndex(SlotItem.Amount);
+                    AddAmountToIndex(anotherItem.SlotItem.Amount);
                     anotherItem.DeleteItemInSlot();
                 }
                 else
