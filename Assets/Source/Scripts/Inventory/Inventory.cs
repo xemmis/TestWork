@@ -9,8 +9,8 @@ public class Inventory : MonoBehaviour
     public int DaggerAmount;
     public int ArrowAmount;
     public int InventorySlotsAmount;
-    public Slot DaggerSlot;
-    public Slot ArrowSlot;
+    public List<Slot> DaggerSlot;
+    public List<Slot> ArrowSlot;
 
     [SerializeField] private DataBase _database;
     [SerializeField] private Slot _slotPrefab;
@@ -59,19 +59,51 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        CheckAmmoExist();
+    }
+
+    private void CheckAmmoExist()
+    {
+        if (DaggerSlot.Count == 0) 
+        {
+            DaggerSlot.Clear();
+            return;
+        }
+
+        if (ArrowSlot.Count == 0)
+        {
+            ArrowSlot.Clear();
+            return;
+        }
+
+        DaggerAmount = 0;
+        ArrowAmount = 0;
+
+        for (int i = 0; i < DaggerSlot.Count; i++)
+        {
+            if (DaggerSlot[i].SlotItem == null || DaggerSlot[i].SlotItem.Type != ItemType.Dagger) DaggerSlot.Remove(DaggerSlot[i]);
+            DaggerAmount += DaggerSlot[i].SlotItem.Amount;
+        }
+
+        for (int i = 0; i < ArrowSlot.Count; i++)
+        {
+            if (ArrowSlot[i].SlotItem == null || ArrowSlot[i].SlotItem.Type != ItemType.Arrow) ArrowSlot.Remove(ArrowSlot[i]);
+            ArrowAmount += ArrowSlot[i].SlotItem.Amount;
+        }
+
+    }
+
     private void FollowAmmoItems(ItemType type, int slotIndex)
     {
         if (type == ItemType.Dagger)
         {
-            DaggerSlot = Slots[slotIndex];
-            DaggerAmount = DaggerSlot.SlotItem.Amount;
-
-
+            DaggerSlot.Add(Slots[slotIndex]);
         }
         if (type == ItemType.Arrow)
         {
-            ArrowSlot = Slots[slotIndex];
-            ArrowAmount = ArrowSlot.SlotItem.Amount;
+            ArrowSlot.Add(Slots[slotIndex]);
         }
         return;
     }
@@ -89,6 +121,6 @@ public class Inventory : MonoBehaviour
         {
             ArrowAmount = slot.SlotItem.MaxStack;
         }
-        
+
     }
 }

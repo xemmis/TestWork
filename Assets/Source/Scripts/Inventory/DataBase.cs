@@ -31,7 +31,7 @@ public class DataBase : MonoBehaviour
             Amount = 1,
         };
 
-        if (newItem.Type == ItemType.Dagger) newItem.Amount = 20;
+        if (newItem.Type == ItemType.Dagger) newItem.Amount = 21;
         if (newItem.Type == ItemType.Arrow) newItem.Amount = 20;
         if (newItem.Type == ItemType.Potion) newItem.Amount = 3;
 

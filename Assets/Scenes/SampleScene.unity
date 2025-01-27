@@ -2514,8 +2514,8 @@ MonoBehaviour:
   DaggerAmount: 0
   ArrowAmount: 0
   InventorySlotsAmount: 30
-  DaggerSlot: {fileID: 0}
-  ArrowSlot: {fileID: 0}
+  DaggerSlot: []
+  ArrowSlot: []
   _database: {fileID: 1543629361}
   _slotPrefab: {fileID: 7646068174491327581, guid: 6928bd3b1c1b6024fa4e70d830287b1c, type: 3}
   _armorInfoWindow: {fileID: 1869413363}
@@ -4503,7 +4503,7 @@ MonoBehaviour:
   - Amount: 0
     Name: Dagger
     Id: 6
-    MaxStack: 100
+    MaxStack: 99
     Sprite: {fileID: 6295747103326941431, guid: 6176752ff97b51548bf9de9d83345a1d, type: 3}
     Type: 3
     WeightValue: 0.01

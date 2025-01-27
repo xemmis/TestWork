@@ -45,11 +45,11 @@ public class Slot : MonoBehaviour, IDropHandler
             return;
         }
         SlotItem = item;
-        if (item.Type == ItemType.Arrow || item.Type == ItemType.Dagger) OnSlotAmmo?.Invoke(item.Type, SlotIndex);
         UpdateAmountText();
 
         _icon.sprite = item.Sprite;
         _icon.color = new Color(1, 1, 1, 1);
+        if (item.Type == ItemType.Arrow || item.Type == ItemType.Dagger) OnSlotAmmo?.Invoke(item.Type, SlotIndex);
     }
 
     public int AddAmountToIndex(int amount)
