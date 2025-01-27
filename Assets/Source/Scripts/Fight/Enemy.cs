@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour, IAlive
     {
         int RandomAccuransy = UnityEngine.Random.Range(1, 3);
         _animator.SetTrigger("Attack");
-        _player.TakeHit(15, RandomAccuransy);
+        _player.TakeHit(_enemyDamage, RandomAccuransy);
     }
 
     private IEnumerator DealDamageTick()

@@ -81,6 +81,14 @@ public class Inventory : MonoBehaviour
     public void BuyAmmo(Slot slot)
     {
         slot.AddAmountToIndex(slot.SlotItem.MaxStack - slot.SlotItem.Amount);
+        if (slot.SlotItem.Type == ItemType.Dagger)
+        {
+            DaggerAmount = slot.SlotItem.MaxStack;
+        }
+        else
+        {
+            ArrowAmount = slot.SlotItem.MaxStack;
+        }
         
     }
 }

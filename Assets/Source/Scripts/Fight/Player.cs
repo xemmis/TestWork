@@ -6,7 +6,7 @@ public class Player : MonoBehaviour, IAlive
 {
     [field: SerializeField] public float Health { get; set; }
     [field: SerializeField] public int MaxHealth { get; set; }
-    
+
     [SerializeField] private EquipSlotLogic _equipSlot;
     [SerializeField] private Enemy _enemy;
     [SerializeField] private Animator _animator;
@@ -28,16 +28,20 @@ public class Player : MonoBehaviour, IAlive
 
     public void TakeHit(float damage, int accuransy)
     {
-        if (accuransy == 1) Health -= (damage - _equipSlot.EquipedHelmet.ArmorValue);
-        if (accuransy == 2) Health -= (damage - _equipSlot.EquipedHelmet.ArmorValue);
+        if (_equipSlot.EquipedChestplate != null || _equipSlot.EquipedHelmet != null)
+        {
+            if (accuransy == 1) Health -= (damage - _equipSlot.EquipedHelmet.ArmorValue);
+            if (accuransy == 2) Health -= (damage - _equipSlot.EquipedHelmet.ArmorValue);
+        }
+        else Health -= damage;
 
         ChangeFillAmount();
         _animator.SetTrigger("Hurt");
-        
+
         if (Health <= 0) Die();
-        
+
     }
-    
+
     public void SetHealth(float health)
     {
         Health = health;
