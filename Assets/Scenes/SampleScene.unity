@@ -468,13 +468,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1007132969}
   - {fileID: 1415827979}
   m_Father: {fileID: 1049576664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -920}
+  m_AnchoredPosition: {x: 12, y: -920}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257612067
@@ -520,7 +519,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 257612068}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1049576665}
+        m_TargetAssemblyTypeName: AttackLogic, Assembly-CSharp
+        m_MethodName: AttackEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &257612068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,7 +729,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 314370670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1049576665}
+        m_TargetAssemblyTypeName: AttackLogic, Assembly-CSharp
+        m_MethodName: ChangeChoice
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &314370670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,7 +875,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6295747103326941431, guid: f243013b774706349ad74b8cac6ee35b, type: 3}
+  m_Sprite: {fileID: -2592153303166121003, guid: 15e7b97c98baeaf4da10a519fc005923, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1087,7 +1110,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.5686275, g: 0.5686275, b: 0.5686275, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 1
@@ -1273,7 +1296,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 724808660}
-  - component: {fileID: 724808663}
   - component: {fileID: 724808662}
   - component: {fileID: 724808661}
   m_Layer: 5
@@ -1341,19 +1363,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724808659}
   m_CullTransparentMesh: 1
---- !u!114 &724808663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724808659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3de26cc4a4a789b489a1fb45e32cb061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 724808661}
 --- !u!1 &730612480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1372,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 730612481}
-  - component: {fileID: 730612484}
   - component: {fileID: 730612483}
   - component: {fileID: 730612482}
   m_Layer: 5
@@ -1431,19 +1439,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730612480}
   m_CullTransparentMesh: 1
---- !u!114 &730612484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 730612480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3de26cc4a4a789b489a1fb45e32cb061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 730612482}
 --- !u!1 &870468431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,8 +1585,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   EquipSlots: []
+  DaggerAmount: 0
+  ArrowAmount: 0
+  _inventorySlotsAmount: 30
   _database: {fileID: 1543629361}
   _slotPrefab: {fileID: 7646068174491327581, guid: 6928bd3b1c1b6024fa4e70d830287b1c, type: 3}
+  _armorInfoWindow: {fileID: 0}
 --- !u!225 &870468437
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1801,8 +1800,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1869413363}
-        m_TargetAssemblyTypeName: ArmorInfoWindow, Assembly-CSharp
+      - m_Target: {fileID: 1972438941}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1869413364}
+        m_TargetAssemblyTypeName: EquipSlotLogic, Assembly-CSharp
         m_MethodName: DeEquipArmor
         m_Mode: 1
         m_Arguments:
@@ -1813,81 +1824,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1007132968
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1007132969}
-  - component: {fileID: 1007132971}
-  - component: {fileID: 1007132970}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1007132969
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007132968}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 257612066}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 120}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1007132970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007132968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 3968931439472063756, guid: bbd58f51943517049a54b7b6efc4e9ee, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1007132971
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007132968}
-  m_CullTransparentMesh: 1
 --- !u!1 &1049576663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,6 +1833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1049576664}
+  - component: {fileID: 1049576665}
   m_Layer: 5
   m_Name: FootImages
   m_TagString: Untagged
@@ -1926,6 +1863,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -205}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1049576665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049576663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c002024afc2c03b4b867d2ffaf33632b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 1236375635}
+  _inventory: {fileID: 870468436}
+  _dataBase: {fileID: 0}
+  Choice: 0
 --- !u!1 &1236375631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,8 +1890,9 @@ GameObject:
   - component: {fileID: 1236375633}
   - component: {fileID: 1236375632}
   - component: {fileID: 1236375634}
+  - component: {fileID: 1236375635}
   m_Layer: 0
-  m_Name: HeavyBandit_6
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2036,6 +1990,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1236375635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236375631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee953df489079fd43a5350b76aa393b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1307904154}
+  _animator: {fileID: 1236375634}
+  <Health>k__BackingField: 0
+  <MaxHealth>k__BackingField: 0
+  <Armor>k__BackingField: 0
 --- !u!1 &1257850739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,7 +2089,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1257850742}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1049576665}
+        m_TargetAssemblyTypeName: AttackLogic, Assembly-CSharp
+        m_MethodName: ChangeChoice
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1257850742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2436,8 +2419,9 @@ GameObject:
   - component: {fileID: 1307904152}
   - component: {fileID: 1307904151}
   - component: {fileID: 1307904153}
+  - component: {fileID: 1307904154}
   m_Layer: 0
-  m_Name: LightBandit_5
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2535,6 +2519,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1307904154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307904150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4cdbd63e8023a14c83ed8ee5f08275d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Health>k__BackingField: 0
+  <MaxHealth>k__BackingField: 0
+  _equipSlot: {fileID: 0}
+  _enemy: {fileID: 1236375635}
+  _animator: {fileID: 1307904153}
 --- !u!1 &1308977849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,7 +2668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5557580574306748709, guid: 9d5d5c029246af34d906241b2ad7a2e6, type: 3}
+  m_Sprite: {fileID: -4571337964353796197, guid: a9c2b85e352a18141b8eaa1963656c73, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2817,7 +2818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4974493166971573023, guid: 64c4930fed058a248afaca0f412d61ff, type: 3}
+  m_Sprite: {fileID: 4974493166971573023, guid: 5afe97f8f3dfff34bb9c3815316c1d19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2944,9 +2945,9 @@ MonoBehaviour:
   - Amount: 0
     Name: IronChestplate
     Id: 1
+    MaxStack: 1
     Sprite: {fileID: 3088541613197650523, guid: 0398fb7de2a1e5242b82c7f97c0f5f3d, type: 3}
-    Type: 0
-    Helmet: 0
+    Type: 1
     WeightValue: 2
     ArmorValue: 2
     HealValue: 0
@@ -2954,9 +2955,9 @@ MonoBehaviour:
   - Amount: 0
     Name: LeatherChestplate
     Id: 2
+    MaxStack: 1
     Sprite: {fileID: 5556341641646306648, guid: a58cd5d3cbe59844fa0dc9118aad6082, type: 3}
-    Type: 0
-    Helmet: 0
+    Type: 1
     WeightValue: 1
     ArmorValue: 1
     HealValue: 0
@@ -2964,9 +2965,9 @@ MonoBehaviour:
   - Amount: 0
     Name: IronHelmet
     Id: 3
+    MaxStack: 1
     Sprite: {fileID: 3218721836051569067, guid: 9679363c31dff1f45917910114532888, type: 3}
     Type: 0
-    Helmet: 1
     WeightValue: 2
     ArmorValue: 2
     HealValue: 0
@@ -2974,9 +2975,9 @@ MonoBehaviour:
   - Amount: 0
     Name: LeatherHelmet
     Id: 4
+    MaxStack: 1
     Sprite: {fileID: 231431464190226788, guid: 23353b64b3c11e047b23c2ab0e1ea7a9, type: 3}
     Type: 0
-    Helmet: 1
     WeightValue: 1
     ArmorValue: 1
     HealValue: 0
@@ -2984,32 +2985,32 @@ MonoBehaviour:
   - Amount: 0
     Name: IronArrow
     Id: 5
+    MaxStack: 50
     Sprite: {fileID: 337671784064463576, guid: 5760d134c1cc15e49bf56c4c002a68e3, type: 3}
-    Type: 1
-    Helmet: 0
-    WeightValue: 0
+    Type: 2
+    WeightValue: 3
     ArmorValue: 0
     HealValue: 0
-    Damage: 3
+    Damage: 9
   - Amount: 0
-    Name: WoodArrow
+    Name: Dagger
     Id: 6
-    Sprite: {fileID: 2541146609699635454, guid: facff54128dc87f46bc2fc907241a017, type: 3}
-    Type: 1
-    Helmet: 0
-    WeightValue: 0
+    MaxStack: 100
+    Sprite: {fileID: 6295747103326941431, guid: 6176752ff97b51548bf9de9d83345a1d, type: 3}
+    Type: 3
+    WeightValue: 1
     ArmorValue: 0
     HealValue: 0
-    Damage: 2
+    Damage: 5
   - Amount: 0
     Name: HealPotion
     Id: 7
+    MaxStack: 6
     Sprite: {fileID: 4704929228616946384, guid: cd924dd9b1b7e8f42a1145df8dcc88c8, type: 3}
-    Type: 2
-    Helmet: 0
-    WeightValue: 0
+    Type: 4
+    WeightValue: 2
     ArmorValue: 0
-    HealValue: 5
+    HealValue: 50
     Damage: 0
 --- !u!4 &1543629362
 Transform:
@@ -3038,7 +3039,7 @@ GameObject:
   - component: {fileID: 1602841262}
   - component: {fileID: 1602841261}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: InteractText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3172,6 +3173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869413362}
   - component: {fileID: 1869413363}
+  - component: {fileID: 1869413364}
   m_Layer: 5
   m_Name: Equipment
   m_TagString: Untagged
@@ -3212,22 +3214,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0850ff49f434041882346215c498af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _armorValue: {fileID: 1303461530}
+  _weightValue: {fileID: 338308901}
+  _interactText: {fileID: 1602841261}
+  _modalImage: {fileID: 1435618854}
+  _modalWindow: {fileID: 1972438941}
+  _inventory: {fileID: 0}
+  SelectedSlot: {fileID: 0}
+  Way: 0
+--- !u!114 &1869413364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869413361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de26cc4a4a789b489a1fb45e32cb061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _helmetImage: {fileID: 1308977851}
+  _chestplateImage: {fileID: 1987620592}
   _selectedSlot: {fileID: 0}
+  _equipedHelmetSlot: {fileID: 0}
+  _equipedChestplateSlot: {fileID: 0}
   _selectedItem:
     Amount: 0
     Name: 
     Id: 0
+    MaxStack: 0
     Sprite: {fileID: 0}
     Type: 0
-    Helmet: 0
     WeightValue: 0
     ArmorValue: 0
     HealValue: 0
     Damage: 0
-  _modalImage: {fileID: 1435618854}
-  _chestplateImage: {fileID: 1987620592}
-  _helmetImage: {fileID: 1308977851}
-  _modalWindow: {fileID: 1972438941}
+  _armorInfoWindow: {fileID: 1869413363}
+  EquipedChestplate:
+    Amount: 0
+    Name: 
+    Id: 0
+    MaxStack: 0
+    Sprite: {fileID: 0}
+    Type: 0
+    WeightValue: 0
+    ArmorValue: 0
+    HealValue: 0
+    Damage: 0
+  EquipedHelmet:
+    Amount: 0
+    Name: 
+    Id: 0
+    MaxStack: 0
+    Sprite: {fileID: 0}
+    Type: 0
+    WeightValue: 0
+    ArmorValue: 0
+    HealValue: 0
+    Damage: 0
 --- !u!1 &1914160399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,7 +3286,7 @@ GameObject:
   - component: {fileID: 1914160402}
   - component: {fileID: 1914160401}
   m_Layer: 5
-  m_Name: Equip
+  m_Name: Use
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3349,9 +3394,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1972438941}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1869413363}
         m_TargetAssemblyTypeName: ArmorInfoWindow, Assembly-CSharp
-        m_MethodName: EquipArmor
+        m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3373,6 +3430,7 @@ GameObject:
   - component: {fileID: 1972438944}
   - component: {fileID: 1972438943}
   - component: {fileID: 1972438945}
+  - component: {fileID: 1972438946}
   m_Layer: 5
   m_Name: PopapWindow
   m_TagString: Untagged
@@ -3452,6 +3510,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1972438946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972438941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d5c844bdcc5ef4d83df5c92d3cb591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armorInfoWindow: {fileID: 1869413363}
+  _player: {fileID: 1307904154}
 --- !u!1 &1987620590
 GameObject:
   m_ObjectHideFlags: 0
