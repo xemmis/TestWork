@@ -59,12 +59,12 @@ public class Slot : MonoBehaviour, IDropHandler
         if (newAmount > SlotItem.MaxStack)
         {
             UpdateAmountText();
-            return newAmount - SlotItem.MaxStack; // Возвращаем остаток
+            return newAmount - SlotItem.MaxStack; 
         }
 
-        SlotItem.Amount = newAmount; // Обновляем количество
+        SlotItem.Amount = newAmount; 
         UpdateAmountText();
-        return 0; // Возвращаем 0, если все добавлено
+        return 0; 
     }
 
     public void UpdateView()

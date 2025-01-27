@@ -27,7 +27,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (OriginalSlot.SlotItem == null || OriginalSlot.SlotItem.Id == 0) return;
 
         _canvasGroup.blocksRaycasts = false;
-        transform.SetParent(_canvas.transform); // Переносим объект в корень Canvas
+        transform.SetParent(_canvas.transform); 
     }
 
     public void OnDrag(PointerEventData eventData)

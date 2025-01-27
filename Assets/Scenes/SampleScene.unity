@@ -213,9 +213,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1613523373}
   - {fileID: 1049576664}
   - {fileID: 321829088}
-  - {fileID: 1613523373}
   - {fileID: 773606387}
   - {fileID: 1532234822}
   - {fileID: 763426911}
@@ -1557,6 +1557,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1567,6 +1568,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1577,6 +1579,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1587,6 +1590,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1597,6 +1601,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1607,6 +1612,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1617,6 +1623,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1627,6 +1634,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1637,6 +1645,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1647,6 +1656,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1657,6 +1667,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1667,6 +1678,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1677,6 +1689,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1687,6 +1700,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1697,6 +1711,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1707,6 +1722,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1717,6 +1733,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1727,6 +1744,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1737,6 +1755,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1747,6 +1766,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1757,6 +1777,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1767,6 +1788,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1777,6 +1799,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1787,6 +1810,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1797,6 +1821,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1807,6 +1832,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1817,6 +1843,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1827,6 +1854,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1837,6 +1865,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -1847,12 +1876,13 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
-  _inventorySlotsItemIndex: 
   _inventory: {fileID: 870468436}
   _player: {fileID: 1307904154}
   _enemy: {fileID: 1236375635}
+  _equipSlotLogic: {fileID: 1869413364}
 --- !u!1 &539190302
 GameObject:
   m_ObjectHideFlags: 0
@@ -4437,6 +4467,7 @@ MonoBehaviour:
     Type: 1
     WeightValue: 10
     ArmorValue: 10
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -4447,6 +4478,7 @@ MonoBehaviour:
     Type: 1
     WeightValue: 1
     ArmorValue: 3
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -4457,6 +4489,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 1
     ArmorValue: 10
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -4467,6 +4500,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0.1
     ArmorValue: 3
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   - Amount: 0
@@ -4477,6 +4511,7 @@ MonoBehaviour:
     Type: 2
     WeightValue: 0.01
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 5
   - Amount: 0
@@ -4487,6 +4522,7 @@ MonoBehaviour:
     Type: 3
     WeightValue: 0.01
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 9
   - Amount: 0
@@ -4497,6 +4533,7 @@ MonoBehaviour:
     Type: 4
     WeightValue: 1
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 50
     Damage: 0
 --- !u!4 &1543629362
@@ -4893,8 +4930,6 @@ MonoBehaviour:
   _helmetImage: {fileID: 1308977851}
   _chestplateImage: {fileID: 1987620592}
   _selectedSlot: {fileID: 0}
-  _equipedHelmetSlot: {fileID: 0}
-  _equipedChestplateSlot: {fileID: 0}
   _selectedItem:
     Amount: 0
     Name: 
@@ -4904,9 +4939,12 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   _armorInfoWindow: {fileID: 1869413363}
+  EquipedHelmetSlot: {fileID: 0}
+  EquipedChestplateSlot: {fileID: 0}
   EquipedChestplate:
     Amount: 0
     Name: 
@@ -4916,6 +4954,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
   EquipedHelmet:
@@ -4927,6 +4966,7 @@ MonoBehaviour:
     Type: 0
     WeightValue: 0
     ArmorValue: 0
+    IsEquiped: 0
     HealValue: 0
     Damage: 0
 --- !u!1 &1914160399
