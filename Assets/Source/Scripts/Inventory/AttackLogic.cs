@@ -5,6 +5,7 @@ public class AttackLogic : MonoBehaviour
     [SerializeField] private Enemy _enemy;
     [SerializeField] private Inventory _inventory;
     [SerializeField] private DataBase _dataBase;
+    [SerializeField] private Player _player;
     public PlayerChoice Choice;
     public enum PlayerChoice
     {
@@ -28,7 +29,8 @@ public class AttackLogic : MonoBehaviour
         if (_inventory.DaggerAmount >= 3)
         {
             _inventory.DaggerAmount -= 3;
-            _enemy.TakeHit(5);
+            _inventory.DaggerSlot.AddAmountToIndex(-3);
+            _player.DealDamage(_inventory.DaggerSlot.SlotItem.Damage);
         }
         else print("DontHaveEnoughDagger");
     }
@@ -38,7 +40,8 @@ public class AttackLogic : MonoBehaviour
         if (_inventory.ArrowAmount >= 1) 
         {
             _inventory.ArrowAmount--;
-            _enemy.TakeHit(10);
+            _inventory.ArrowSlot.AddAmountToIndex(-1);
+            _player.DealDamage(_inventory.ArrowSlot.SlotItem.Damage);
         }
         else print("DontHaveEnoughArrow");
     }

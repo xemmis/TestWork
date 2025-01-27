@@ -17,17 +17,18 @@ public class DataBase : MonoBehaviour
         }
 
         Item newItem = new Item
-        {            
+        {
             WeightValue = originalItem.WeightValue,
             ArmorValue = originalItem.ArmorValue,
             HealValue = originalItem.HealValue,
             MaxStack = originalItem.MaxStack,
             Damage = originalItem.Damage,
+            Sprite = originalItem.Sprite,
             Type = originalItem.Type,
             Name = originalItem.Name,
             Id = originalItem.Id,
+            IsEquiped = false,
             Amount = 1,
-            Sprite = originalItem.Sprite
         };
 
         if (newItem.Type == ItemType.Dagger) newItem.Amount = 20;
@@ -48,12 +49,13 @@ public class Item
     public Sprite Sprite;
     public ItemType Type;
     [Header("if Armor")]    
-    public int WeightValue;
-    public int ArmorValue;
+    public float WeightValue;
+    public float ArmorValue;
+    public bool IsEquiped;
     [Header("if Potion")]
-    public int HealValue;
+    public float HealValue;
     [Header("if CanDealDamage")]
-    public int Damage;
+    public float Damage;
 }
 public enum ItemType
 {

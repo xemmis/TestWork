@@ -13,14 +13,13 @@ public class ModalWindowLogic : MonoBehaviour
 
     public void UseHealPotion(Item item, Slot slot)
     {
-        slot.SlotItem.Amount--;
-        slot.ChangeSlotAmountText();
+        slot.AddAmountToIndex(-1);
         _player.TakeHeal(item.HealValue);
     }
 
     public void BuyNewAmmo(Item item, Slot slot)
     {
-        slot.UpdateSlot(item, item.MaxStack);
+        slot.AddAmountToIndex(item.MaxStack - slot.SlotItem.Amount);
     }
 
 }

@@ -3,25 +3,24 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class Slot : MonoBehaviour, IDropHandler
 {
-    private Inventory _inventory;
-    [SerializeField] private Image _icon;    
+    [SerializeField] private Image _icon;
+    private Button _button;
+
     public TextMeshProUGUI CountText;
     public Item SlotItem = null;
     public int SlotIndex;
 
-    private Button _button;
-
-    public Action <ItemType,int> OnSlotAmmo;
+    public Action<ItemType, int> OnSlotAmmo;
     public static Action<Item, Slot> OnItemClicked;
 
     private void Awake()
     {
         _button = GetComponent<Button>();
         CountText = GetComponentInChildren<TextMeshProUGUI>();
-        _inventory = GetComponentInParent<Inventory>();
     }
 
     private void Start()
@@ -30,7 +29,6 @@ public class Slot : MonoBehaviour, IDropHandler
         {
             _button.onClick.AddListener(ItemClicked);
         }
-        ChangeSlotAmountText();
     }
 
     public void ItemClicked()
@@ -39,63 +37,109 @@ public class Slot : MonoBehaviour, IDropHandler
         OnItemClicked?.Invoke(SlotItem, this);
     }
 
-    public void ChangeSlotAmountText()
+    public void AddItemInSlot(Item item)
     {
-        if (SlotItem == null)
+        if (item  == null || item.Id == 0)
         {
-            CountText.text = "";
+            DeleteItemInSlot();
             return;
         }
+        SlotItem = item;
+        if (item.Type == ItemType.Arrow || item.Type == ItemType.Dagger) OnSlotAmmo?.Invoke(item.Type, SlotIndex);
+        UpdateAmountText();
 
+        _icon.sprite = item.Sprite;
+        _icon.color = new Color(1, 1, 1, 1);
+    }
+
+    public int AddAmountToIndex(int amount)
+    {
+        int newAmount = SlotItem.Amount + amount;
+
+        if (newAmount > SlotItem.MaxStack)
+        {
+            UpdateAmountText();
+            return newAmount - SlotItem.MaxStack; // Возвращаем остаток
+        }
+
+        SlotItem.Amount = newAmount; // Обновляем количество
+        UpdateAmountText();
+        return 0; // Возвращаем 0, если все добавлено
+    }
+
+    public void UpdateView()
+    {
+        if (SlotItem != null && SlotItem.Id > 0)
+        {
+            if (SlotItem.Type == ItemType.Arrow || SlotItem.Type == ItemType.Dagger) OnSlotAmmo?.Invoke(SlotItem.Type, SlotIndex);
+
+            _icon.sprite = SlotItem.Sprite;
+            _icon.color = new Color(1, 1, 1, 1);
+            UpdateAmountText();
+        }
+        else
+        {
+            UpdateAmountText();
+            SlotItem = null;
+            _icon.color = new Color(1, 1, 1, 0);
+        }
+
+    }
+
+    public void OnButtonClick()
+    {
+        OnItemClicked?.Invoke(SlotItem, this);
+    }
+
+    public void UpdateAmountText()
+    {
         if (SlotItem.Amount > 1) CountText.text = SlotItem.Amount.ToString();
         else CountText.text = "";
     }
 
-    public void UpdateSlot(Item item, int amount)
+    public void DeleteItemInSlot()
     {
-        if (item != null)
-        {
-            if (item.Type == ItemType.Dagger || item.Type == ItemType.Arrow)
-            {
-                OnSlotAmmo?.Invoke(item.Type, SlotIndex);
-                print("ammo");
-            }
-
-            SlotItem = item;
-            SlotItem.Amount = amount;
-            _icon.sprite = SlotItem.Sprite;
-            _icon.color = new Color(1, 1, 1, 1);
-            ChangeSlotAmountText();
-        }
-        else
-        {
-            SlotItem = null;
-            _icon.color = new Color(1, 1, 1, 0);
-            ChangeSlotAmountText();
-        }
+        SlotItem = null;
+        _icon.sprite = null;
+        _icon.color = new Color(1, 1, 1, 0);
+        CountText.text = null;
     }
 
-    public void UpdateSlot(Item item)
+    private void DragDropAddLogic(Slot anotherItem)
     {
-        if (item != null)
+        if (SlotItem != null)
         {
-            if (item.Type == ItemType.Dagger || item.Type == ItemType.Arrow)
+            if (SlotItem.Id > 0)
             {
-                OnSlotAmmo?.Invoke(item.Type, SlotIndex);
-                print("ammo");
-            }
+                if (anotherItem.SlotItem.Id == SlotItem.Id)
+                {
+                    int missAmount = anotherItem.AddAmountToIndex(SlotItem.Amount);
 
-            SlotItem = item;
-            SlotItem.Amount = item.Amount;
-            _icon.sprite = SlotItem.Sprite;
-            _icon.color = new Color(1, 1, 1, 1);
-            ChangeSlotAmountText();
+                    if (missAmount > 0)
+                    {
+                        SlotItem.Amount = SlotItem.MaxStack;
+                        anotherItem.SlotItem.Amount = missAmount;
+
+                        UpdateAmountText();
+                        anotherItem.UpdateAmountText();
+                        return;
+                    }
+                    AddAmountToIndex(SlotItem.Amount);
+                    anotherItem.DeleteItemInSlot();
+                }
+                else
+                {
+                    Item tempCurrentSlotItem = SlotItem;
+                    Item tempAnotherSlotItem = anotherItem.SlotItem;
+                    anotherItem.AddItemInSlot(tempCurrentSlotItem);
+                    AddItemInSlot(tempAnotherSlotItem);
+                }
+            }
         }
         else
         {
-            SlotItem = null;
-            _icon.color = new Color(1, 1, 1, 0);
-            ChangeSlotAmountText();
+            AddItemInSlot(anotherItem.SlotItem);
+            anotherItem.DeleteItemInSlot();
         }
     }
 
@@ -105,44 +149,15 @@ public class Slot : MonoBehaviour, IDropHandler
 
         if (draggedObject != null)
         {
-            DraggableItem draggedItem = draggedObject.GetComponent<DraggableItem>();
-            if (draggedItem.OriginalSlot.gameObject == this.gameObject)
-            {
-                return;
-            }
+            DraggableItem draggableItem = draggedObject.GetComponent<DraggableItem>();
+            Slot draggableSlot = draggableItem.OriginalSlot;
+            if (draggableItem == null || draggableSlot == null) return;
 
-            if (draggedItem != null && draggedItem.OriginalSlot.SlotItem != null)
+            if (draggableSlot.SlotItem != null)
             {
-                Item tempItem = SlotItem;
-                if (tempItem != null && tempItem.Id == draggedItem.OriginalSlot.SlotItem.Id)
-                {
-                    if (tempItem.Amount + draggedItem.OriginalSlot.SlotItem.Amount > tempItem.MaxStack)
-                    {
-                        int remains = tempItem.Amount + draggedItem.OriginalSlot.SlotItem.Amount - tempItem.MaxStack;
-                        print(remains);
-                        tempItem.Amount = tempItem.MaxStack;
-                        UpdateSlot(tempItem);
-                        _inventory.AddItemInSlot(0, draggedItem.OriginalSlot.SlotItem.Id, remains);
-                        draggedItem.OriginalSlot.UpdateSlot(null);
-                        _inventory.CheckAmmoAmount();
-                    }
-                    else
-                    {
-                        tempItem.Amount += draggedItem.OriginalSlot.SlotItem.Amount;
-                        UpdateSlot(tempItem);
-                        draggedItem.OriginalSlot.UpdateSlot(null);
-                        _inventory.CheckAmmoAmount();
-                    }
-
-                }
-                else
-                {
-                    UpdateSlot(draggedItem.OriginalSlot.SlotItem);
-                    if (tempItem != null && tempItem.Id != 0) draggedItem.OriginalSlot.UpdateSlot(tempItem);
-                    else draggedItem.OriginalSlot.UpdateSlot(null);
-                    _inventory.CheckAmmoAmount();
-                }
+                DragDropAddLogic(draggableSlot);
             }
+            UpdateAmountText();
         }
     }
 }

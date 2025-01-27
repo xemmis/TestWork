@@ -70,7 +70,7 @@ public class ArmorInfoWindow : MonoBehaviour
                 break;
             case InteractWay.Buy:
                 OnBuyAction?.Invoke(_selectedItem, SelectedSlot);
-                _inventory.BuyAmmo(_selectedItem.Type);
+                _inventory.BuyAmmo(SelectedSlot);
                 break;
             case InteractWay.Heal:
                 OnHealAction?.Invoke(_selectedItem, SelectedSlot);
